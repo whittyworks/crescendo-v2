@@ -1,0 +1,386 @@
+/* =========================================================
+   My Holy Crescendo — Global Styles (Unified & Fixed)
+   - Gold accents + shimmery gold buttons
+   - Centered masthead with THIN separators
+   - Gold "brushstroke" underline for nav hover/active
+   - Script subtitle support
+   - FIXED: Nav items never get gold-list bullets
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap");
+
+/* ---------- Tokens ---------- */
+:root{
+  --ink:#273746;
+  --paper:#f9fafa;
+  --brand:#3a6073;
+  --brand-2:#7fb6b3;
+  --accent:#C3A35B;
+  --accent-2:#E0C98F;
+  --muted:#47515a;
+  --ink-2:#163245;
+  --nav-sep: rgba(39,55,70,.25);
+  --page-width: min(900px, 92%);
+}
+
+/* ---------- Base ---------- */
+*{ box-sizing:border-box; }
+html,body{ margin:0; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+  color:var(--ink);
+  background: linear-gradient(180deg, #f9fafa 0%, #edf6f5 100%);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+h1,h2{
+  font-family:"Playfair Display", Georgia, serif;
+  color:var(--ink-2);
+}
+
+img{ max-width:100%; display:block; }
+a{ color: var(--accent); text-decoration: none; }
+
+/* ---------- Layout ---------- */
+.container{
+  width:var(--page-width);
+  margin-inline:auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:#ffffffc8;
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.masthead{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  padding-block: 12px;
+}
+
+.site-title,
+.site-title:link,
+.site-title:visited{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:700;
+  font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+  letter-spacing:.4px;
+  color:var(--ink-2);
+  text-decoration:none;
+}
+
+/* ---------- Primary Navigation (FIXED) ---------- */
+.primary-nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 6px 0 10px;
+  list-style: none;
+}
+
+.primary-nav .menu li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+/* CRITICAL: Prevent gold-list styles from affecting nav */
+.primary-nav .menu li::before,
+.primary-nav .menu li::marker {
+  content: none !important;
+  display: none !important;
+}
+
+/* Separators ONLY between items (not before first) */
+.primary-nav .menu li + li::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 1px;
+  height: 22px;
+  background: var(--nav-sep);
+  margin: 0 6px;
+}
+
+/* Links with gold brushstroke underline */
+.nav-link{
+  position:relative;
+  text-decoration:none;
+  color:#273746;
+  font-weight:700;
+  font-size: clamp(.96rem, 2.2vw, 1rem);
+  padding:4px 2px;
+  transition: color .2s ease;
+}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-10px;
+  height:4px;
+  background: linear-gradient(90deg, rgba(195,163,91,0) 0%, rgba(195,163,91,.95) 35%, rgba(195,163,91,0) 100%);
+  opacity:0;
+  transform: translateY(2px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.nav-link:hover::after{
+  opacity:.6;
+  transform: translateY(0);
+}
+
+.nav-link.active::after,
+.nav-link.is.active::after,
+.nav-link.is-active::after{
+  opacity:1;
+  transform: translateY(0);
+}
+
+@media (max-width:560px){
+  .primary-nav .menu{ gap:10px; }
+  .primary-nav .menu li + li::before{ margin: 0 4px; height:18px; }
+}
+
+/* ---------- Hero Sections ---------- */
+.landing-hero,
+.hero{
+  padding:80px 0 100px;
+  text-align:center;
+  position:relative;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, rgba(195,163,91,.12), transparent 60%),
+    radial-gradient(900px 450px at 80% 0%, rgba(127,182,179,.12), transparent 60%),
+    linear-gradient(180deg, #f9fafa 0%, #edf6f5 100%);
+}
+
+.headline{
+  text-align:center;
+  margin:0 auto;
+  font-size:clamp(2.2rem, 4vw, 3rem);
+}
+
+.title-main{
+  display:block;
+  font-family:"Playfair Display", serif;
+  font-weight:700;
+  font-size:clamp(3.8rem, 8vw, 5.6rem);
+  letter-spacing:1px;
+  color:var(--ink-2);
+  line-height:1.0;
+  margin-bottom:0;
+}
+
+.title-sub{
+  display:block;
+  font-family:"Great Vibes", cursive;
+  font-weight:400;
+  font-size:clamp(1.8rem, 5vw, 2.6rem);
+  margin-top:0.2em;
+  line-height:1.3;
+  background: linear-gradient(90deg, #c3a35b 0%, #e7d7a2 20%, #c3a35b 40%, #b4933e 60%, #e7d7a2 80%, #c3a35b 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation: shimmer 8s infinite linear;
+}
+
+@keyframes shimmer{
+  0%{ background-position:0% 50%; }
+  100%{ background-position:100% 50%; }
+}
+
+.subtitle {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(1.6rem, 4.8vw, 1.9rem);
+  color: var(--accent);
+  margin: 0.75rem 0 1.75rem;
+  line-height: 1.4;
+  overflow: visible;
+}
+
+.lede{ 
+  font-size:1.05rem; 
+  opacity:.9; 
+  margin:.2em 0 1em; 
+}
+
+.cta-row{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;
+  font-weight:700;
+  letter-spacing:.2px;
+  text-decoration:none;
+  border:0;
+  border-radius:999px;
+  padding:14px 20px;
+  color:#fff;
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: 0 10px 30px rgba(195,163,91,.18), 0 2px 6px rgba(0,0,0,.06);
+}
+
+.btn:hover{ transform: translateY(-1px); }
+
+.btn.primary,
+.btn{
+  background:linear-gradient(90deg, #d4b165, #c3a35b, #e3cc8a);
+}
+
+.btn.secondary,
+.btn--teal{
+  background:linear-gradient(135deg, var(--brand), var(--brand-2));
+  box-shadow: 0 10px 30px rgba(58,163,169,.18), 0 2px 6px rgba(0,0,0,.06);
+}
+
+.btn--gold{
+  background-image: linear-gradient(120deg, #b8892e 0%, #e6cc7a 25%, #caa24f 50%, #a8791f 75%, #e6cc7a 100%);
+  background-size: 220% 100%;
+  animation: goldflow 6s linear infinite;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06) inset, 0 10px 28px rgba(195,163,91,.34), 0 3px 8px rgba(0,0,0,.10);
+}
+
+@keyframes goldflow{ 
+  0%{background-position:0% 0%} 
+  100%{background-position:100% 0%} 
+}
+
+/* ---------- Content Sections ---------- */
+.mini-about{ padding:28px 0 52px; }
+
+.about{
+  font-size:1.05rem;
+  text-align:center;
+  max-width:60ch;
+  margin:0 auto;
+  color:#2b3138;
+  overflow: visible;
+}
+
+.program,
+.prelude{
+  text-align: center;
+  padding: 60px 0;
+}
+
+.program p{
+  margin: 0 auto 1rem;
+  max-width: 70ch;
+  color: var(--muted);
+}
+
+.signature{
+  font-family: "Great Vibes", cursive;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-top: 2rem;
+}
+
+/* ---------- Gold Line Bullets (SCOPED) ---------- */
+.gold-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem;
+  display: inline-block;
+  text-align: left;
+}
+
+.gold-list li {
+  position: relative;
+  padding-left: 22px;
+  margin: 0.45rem 0;
+  line-height: 1.55;
+  list-style: none;
+}
+
+.gold-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(195,163,91,0), var(--accent), rgba(195,163,91,0));
+  box-shadow: 0 0 4px rgba(224,201,143,.4);
+}
+
+/* Benefits list (different styling) */
+.benefits{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.benefits li{
+  margin: 0;
+  max-width: 45ch;
+  list-style: none;
+}
+
+.benefits li::before{
+  content: "— ";
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+.site-footer,
+footer{
+  border-top:1px solid rgba(0,0,0,.08);
+  padding:24px 0 48px;
+  background:#fff;
+  text-align: center;
+}
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+footer img{
+  display: block;
+  margin: 0 auto 10px;
+  height: 40px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:600px){
+  .hero{ padding: 60px 0 90px; }
+}
+
+@media (max-width:480px){
+  .title-sub{ font-size:clamp(1.6rem, 6vw, 2.2rem); }
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .btn{ transition:none; }
+  .title-sub{ animation:none; }
+  .btn--gold{ animation: none; }
+}
