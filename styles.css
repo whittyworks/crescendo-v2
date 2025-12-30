@@ -356,16 +356,35 @@ nav {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .constellation-star {
     position: absolute;
     background: radial-gradient(circle, #E8C872, #D4AF37);
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(232, 200, 114, 0.6),
-                0 0 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 15px rgba(232, 200, 114, 0.8),
+                0 0 30px rgba(212, 175, 55, 0.6),
+                0 0 45px rgba(212, 175, 55, 0.4);
     animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.constellation-star.star-large {
+    width: 8px;
+    height: 8px;
+    opacity: 0.9;
+}
+
+.constellation-star.star-medium {
+    width: 6px;
+    height: 6px;
+    opacity: 0.85;
+}
+
+.constellation-star.star-small {
+    width: 5px;
+    height: 5px;
+    opacity: 0.8;
 }
 
 .constellation-star:nth-child(odd) {
@@ -384,10 +403,16 @@ nav {
     0%, 100% {
         opacity: inherit;
         transform: scale(1);
+        box-shadow: 0 0 15px rgba(232, 200, 114, 0.8),
+                    0 0 30px rgba(212, 175, 55, 0.6),
+                    0 0 45px rgba(212, 175, 55, 0.4);
     }
     50% {
-        opacity: calc(var(--star-opacity, 0.6) * 1.5);
-        transform: scale(1.2);
+        opacity: 1;
+        transform: scale(1.3);
+        box-shadow: 0 0 20px rgba(232, 200, 114, 1),
+                    0 0 40px rgba(212, 175, 55, 0.8),
+                    0 0 60px rgba(212, 175, 55, 0.6);
     }
 }
 
@@ -1022,8 +1047,19 @@ footer {
         height: 35px;
     }
     
-    .constellation-star {
-        transform: scale(0.7);
+    .constellation-star.star-large {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .constellation-star.star-medium {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .constellation-star.star-small {
+        width: 4px;
+        height: 4px;
     }
     
     .nav-links {
