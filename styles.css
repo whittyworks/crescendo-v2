@@ -348,6 +348,49 @@ nav {
     overflow: hidden;
 }
 
+/* Virgo Constellation */
+.virgo-constellation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.constellation-star {
+    position: absolute;
+    background: radial-gradient(circle, #E8C872, #D4AF37);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(232, 200, 114, 0.6),
+                0 0 15px rgba(212, 175, 55, 0.4);
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.constellation-star:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.constellation-star:nth-child(3n) {
+    animation-delay: 1s;
+}
+
+.constellation-star:nth-child(4n) {
+    animation-delay: 1.5s;
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: inherit;
+        transform: scale(1);
+    }
+    50% {
+        opacity: calc(var(--star-opacity, 0.6) * 1.5);
+        transform: scale(1.2);
+    }
+}
+
 .hero-content {
     max-width: 900px;
     text-align: center;
@@ -977,6 +1020,10 @@ footer {
     
     .logo-image {
         height: 35px;
+    }
+    
+    .constellation-star {
+        transform: scale(0.7);
     }
     
     .nav-links {
