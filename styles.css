@@ -73,6 +73,22 @@ nav {
     letter-spacing: 0.05em;
 }
 
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 45px;
+    width: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.logo-image:hover {
+    opacity: 0.8;
+}
+
 .nav-links {
     display: flex;
     gap: 2.5rem;
@@ -957,6 +973,10 @@ footer {
         flex-direction: column;
         gap: 1rem;
         padding: 1rem 5%;
+    }
+    
+    .logo-image {
+        height: 35px;
     }
     
     .nav-links {
