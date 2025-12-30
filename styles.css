@@ -267,6 +267,36 @@ section {
     font-weight: 500;
 }
 
+.course-cover {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--cream-dark);
+    border-radius: 8px;
+}
+
+.cover-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cover-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.image-caption {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    font-style: italic;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
 .offering-title {
     font-size: 2.5rem;
     color: var(--gold-dark);
@@ -365,6 +395,25 @@ section {
     border: 2px solid var(--gold);
     font-weight: 500;
     margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
 }
 
 .cta-button:hover {
@@ -374,9 +423,22 @@ section {
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
+.cta-button:hover::before {
+    animation: shimmer 1.5s infinite;
+}
+
 .cta-button.secondary {
     background: transparent;
     color: var(--gold);
+}
+
+.cta-button.secondary::before {
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(212, 175, 55, 0.2) 50%,
+        transparent 70%
+    );
 }
 
 .cta-button.secondary:hover {
@@ -504,14 +566,23 @@ footer {
 
 @keyframes shimmer {
     0% {
-        background-position: -1000px 0;
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
     }
     100% {
-        background-position: 1000px 0;
+        transform: translateX(100%) translateY(100%) rotate(45deg);
     }
 }
 
-/* Gold flecks effect */
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.3);
+    }
+}
 .gold-flecks {
     position: absolute;
     width: 100%;
@@ -519,22 +590,120 @@ footer {
     top: 0;
     left: 0;
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 0.6;
+    z-index: 1;
 }
 
 .fleck {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 4px;
+    height: 4px;
     background: var(--gold);
     border-radius: 50%;
+    box-shadow: 0 0 3px var(--gold-light);
     animation: twinkle 3s ease-in-out infinite;
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.8; }
+/* Watercolor flowers */
+.watercolor-flower {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.25;
 }
+
+.flower-1 {
+    width: 200px;
+    height: 200px;
+    top: 15%;
+    right: 10%;
+    background: radial-gradient(circle at 30% 30%, var(--mauve) 0%, transparent 50%),
+                radial-gradient(circle at 70% 40%, var(--blush) 0%, transparent 50%),
+                radial-gradient(circle at 50% 70%, var(--sage) 0%, transparent 50%),
+                radial-gradient(circle at 20% 60%, var(--mauve) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--blush) 0%, transparent 50%);
+    filter: blur(20px);
+    animation: float 25s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+.flower-2 {
+    width: 250px;
+    height: 250px;
+    bottom: 20%;
+    left: 5%;
+    background: radial-gradient(circle at 40% 40%, var(--sage) 0%, transparent 50%),
+                radial-gradient(circle at 60% 30%, var(--mauve) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, var(--blush) 0%, transparent 50%),
+                radial-gradient(circle at 80% 60%, var(--sage) 0%, transparent 50%);
+    filter: blur(25px);
+    animation: float 30s ease-in-out infinite;
+    animation-delay: -10s;
+}
+
+.flower-3 {
+    width: 180px;
+    height: 180px;
+    top: 50%;
+    left: 15%;
+    background: radial-gradient(circle at 50% 50%, var(--blush) 0%, transparent 50%),
+                radial-gradient(circle at 30% 30%, var(--mauve) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, var(--sage) 0%, transparent 50%);
+    filter: blur(18px);
+    animation: float 20s ease-in-out infinite;
+    animation-delay: -15s;
+}
+
+.flower-accent {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.petal {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: radial-gradient(ellipse at center, var(--mauve), transparent);
+    border-radius: 50% 50% 50% 0;
+    filter: blur(8px);
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-30px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-30px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-30px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-30px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-30px); }
+
+.flower-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--gold-light), var(--gold));
+    border-radius: 50%;
+    filter: blur(3px);
+}
+
+/* Gold leaf accents */
+.gold-leaf {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    border-radius: 0 50% 50% 50%;
+    opacity: 0.4;
+    filter: blur(2px);
+    pointer-events: none;
+    animation: float 15s ease-in-out infinite;
+}
+
+.leaf-1 { top: 20%; right: 20%; animation-delay: 0s; transform: rotate(45deg); }
+.leaf-2 { top: 60%; left: 10%; animation-delay: -5s; transform: rotate(-30deg); }
+.leaf-3 { bottom: 15%; right: 15%; animation-delay: -10s; transform: rotate(120deg); }
 
 /* Responsive */
 @media (max-width: 1024px) {

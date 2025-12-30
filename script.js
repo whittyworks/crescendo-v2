@@ -38,12 +38,17 @@ const createFlecks = () => {
         const flecksContainer = document.createElement('div');
         flecksContainer.className = 'gold-flecks';
         
-        for (let i = 0; i < 8; i++) {
+        // Create many more flecks for better visibility
+        for (let i = 0; i < 20; i++) {
             const fleck = document.createElement('div');
             fleck.className = 'fleck';
             fleck.style.top = Math.random() * 100 + '%';
             fleck.style.left = Math.random() * 100 + '%';
             fleck.style.animationDelay = Math.random() * 3 + 's';
+            // Vary sizes slightly
+            const size = 3 + Math.random() * 3;
+            fleck.style.width = size + 'px';
+            fleck.style.height = size + 'px';
             flecksContainer.appendChild(fleck);
         }
         
