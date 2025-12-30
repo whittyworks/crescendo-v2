@@ -1888,3 +1888,371 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Prelude Page Specific Styles */
+.prelude-hero {
+    min-height: 85vh;
+}
+
+.prelude-promise {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+}
+
+.promise-icon {
+    font-size: 2rem;
+}
+
+.promise-text {
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+/* Prelude Components */
+.prelude-components {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.component {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.component-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.component-title {
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.component p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+/* Three Days Timeline */
+.days-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.day-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--gold);
+    position: relative;
+}
+
+.day-card.featured {
+    border-left-width: 6px;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.day-number {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    background: var(--gold);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.day-title {
+    font-size: 2rem;
+    color: var(--gold-dark);
+    margin-bottom: 1rem;
+}
+
+.day-verse {
+    font-style: italic;
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.day-description {
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.day-includes {
+    background: rgba(253, 248, 243, 0.5);
+    padding: 2rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+
+.day-includes h4 {
+    color: var(--gold-dark);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.day-includes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.day-includes li {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.day-includes li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.day-music {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(220, 197, 216, 0.05));
+    border-radius: 6px;
+}
+
+.music-icon {
+    font-size: 2rem;
+}
+
+.music-label {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.music-title {
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    font-weight: 500;
+}
+
+/* Sign Up Section */
+.prelude-signup {
+    padding: 8rem 5%;
+    background: linear-gradient(135deg, rgba(253, 248, 243, 0.9), rgba(220, 197, 216, 0.1));
+    position: relative;
+}
+
+.signup-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.signup-description {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.mailerlite-form-container {
+    margin: 3rem 0;
+}
+
+/* Form Placeholder Styling (Remove when MailerLite added) */
+.form-placeholder {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    border: 2px dashed var(--gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+.placeholder-content {
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.placeholder-content h3 {
+    color: var(--gold-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.placeholder-instructions {
+    background: rgba(253, 248, 243, 0.5);
+    padding: 2rem;
+    border-radius: 6px;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.placeholder-instructions h4 {
+    color: var(--gold-dark);
+    margin-bottom: 1rem;
+}
+
+.placeholder-instructions ol {
+    color: var(--text-medium);
+    line-height: 1.8;
+    padding-left: 1.5rem;
+}
+
+.signup-promise {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.signup-promise p {
+    color: var(--text-medium);
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Next Steps Cards */
+.next-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.next-step-card {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.next-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.step-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-title {
+    font-size: 2rem;
+    color: var(--gold-dark);
+    margin-bottom: 0.5rem;
+}
+
+.step-subtitle {
+    font-size: 1rem;
+    color: var(--text-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.step-description {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* FAQ Grid */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Final CTA */
+.final-cta {
+    padding: 8rem 5%;
+    background: linear-gradient(135deg, rgba(253, 248, 243, 0.95), rgba(220, 197, 216, 0.15));
+    position: relative;
+}
+
+.final-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-button.large {
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+}
+
+/* Testimonials Note (Remove when you add real testimonials) */
+.testimonials-note {
+    padding: 4rem 2rem;
+}
+
+/* Mobile Responsive for Prelude */
+@media (max-width: 768px) {
+    .prelude-promise {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .days-timeline {
+        padding: 0 1rem;
+    }
+    
+    .day-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .day-title {
+        font-size: 1.5rem;
+    }
+    
+    .next-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
