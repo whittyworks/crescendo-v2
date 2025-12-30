@@ -101,6 +101,6 @@ const createBee = () => {
     }, 25000);
 };
 
-// Start the bee animation after page loads (initial delay of 8-15 seconds)
-const initialDelay = 8000 + Math.random() * 7000;
+// Start the bee animation after page loads (initial delay of 3-6 seconds)
+const initialDelay = 3000 + Math.random() * 3000;
 setTimeout(createBee, initialDelay);
