@@ -89,8 +89,236 @@ nav {
     letter-spacing: 0.1em;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--gold);
+}
+
+/* About Page Styles */
+.about-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 8rem 5% 5rem;
+    overflow: hidden;
+}
+
+.about-hero-content {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.about-story {
+    padding: 8rem 5%;
+    position: relative;
+}
+
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.story-content {
+    position: relative;
+    z-index: 2;
+}
+
+.story-text {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-medium);
+}
+
+.story-intro {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.story-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-image-placeholder {
+    position: relative;
+}
+
+.image-frame {
+    position: relative;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.image-note {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    font-style: italic;
+    margin-top: 1rem;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.photo-caption {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.about-values {
+    padding: 8rem 5%;
+    position: relative;
+}
+
+.values-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.value-card {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.value-title {
+    font-size: 1.8rem;
+    color: var(--gold-dark);
+    margin-bottom: 1rem;
+}
+
+.value-description {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    line-height: 1.8;
+}
+
+.about-expect {
+    padding: 8rem 5%;
+    position: relative;
+}
+
+.expect-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.expect-content {
+    margin-top: 3rem;
+}
+
+.expect-intro {
+    font-size: 1.3rem;
+    color: var(--text-medium);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.expect-features {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.expect-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.08);
+    border-left: 4px solid var(--gold);
+}
+
+.expect-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.expect-item h4 {
+    font-size: 1.25rem;
+    color: var(--gold-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.expect-item p {
+    font-size: 1.05rem;
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.about-cta {
+    padding: 6rem 5%;
+    text-align: center;
+    position: relative;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .story-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-hero {
+        min-height: 50vh;
+        padding: 6rem 5% 3rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .value-card {
+        padding: 2rem 1.5rem;
+    }
 }
 
 /* Hero Section */
